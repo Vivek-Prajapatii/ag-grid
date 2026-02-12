@@ -19,7 +19,7 @@ export const employeeColumns = [
   { field: "hireDate" },
   { field: "performanceRating" },
   { field: "projectsCompleted" },
-  { field: "isActive", cellClassRules: ragCellClassRules },
+  { field: "isActive", cellClassRules: ragCellClassRules, editable: true },
 ];
 
 export const employeeData = {

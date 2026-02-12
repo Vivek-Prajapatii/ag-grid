@@ -1,6 +1,6 @@
 import { AllCommunityModule } from "ag-grid-community";
 import { AgGridProvider, AgGridReact } from "ag-grid-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { employeeColumns, employeeData } from "../../employee.config";
 
 export default function AgGrid() {
@@ -9,6 +9,7 @@ export default function AgGrid() {
 
   // Row Data
   const [rowData] = useState(employeeData?.employees);
+  const [loading, setLoading] = useState(true); 
   const modules = [AllCommunityModule];
 
   const defaultColDef = useMemo(() => {
@@ -23,6 +24,13 @@ export default function AgGrid() {
     headerCheckbox: true,
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 100);
+  }, []);
+
+
   return (
     <AgGridProvider modules={modules}>
       <div style={{ height: "650px", width: "100%" }}>
@@ -34,6 +42,7 @@ export default function AgGrid() {
           paginationPageSize={15}
           paginationPageSizeSelector={[10, 15, 20]}
           rowSelection={rowSelection}
+          loading={loading}
         />
       </div>
     </AgGridProvider>
