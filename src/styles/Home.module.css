@@ -91,6 +91,14 @@ a.secondary {
   border-color: var(--button-secondary-border);
 }
 
+:global(.rag-red) {
+  background-color: #cc222244;
+}
+
+:global(.rag-green) {
+  background-color: #22cc2244;
+} 
+
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
   a.primary:hover {
